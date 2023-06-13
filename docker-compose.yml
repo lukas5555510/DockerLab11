@@ -1,0 +1,47 @@
+version: '1.1.4'
+
+services:
+  nginx:
+    image: nginx
+    container_name: nginx-container
+    volumes:
+     - ./default.conf:/etc/nginx/conf.d/default.conf
+     - ./index.php:/var/www/html/index.php
+    ports:
+     - "80:80"
+    links:
+     - php
+    networks:
+     - backend
+     - frontend
+  php:
+    image: php:fpm
+    container_name: php-container
+    volumes:
+     - ./index.php:/var/www/html/index.php
+    networks:
+     - backend
+
+  mysql:
+    image: mysql
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: student
+    networks:
+     - backend
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin-container
+    ports:
+     - "6001:80"
+    environment:
+     - PMA_ARBITRARY=1
+     - MYSQL_HOST=mysql
+     - MYSQL_USER=root
+     - MYSQL_PASSWORD=root
+    networks:
+     - backend
+networks:
+  backend:
+  frontend:
