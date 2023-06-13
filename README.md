@@ -1,6 +1,7 @@
 # DockerLab11
 docker compose up -d
 ![image](https://github.com/lukas5555510/DockerLab11/assets/83607788/d2e784a6-b4aa-44b9-8e05-7596ef98f002)
+![image](https://github.com/lukas5555510/DockerLab11/assets/83607788/1bb8fc45-506a-4e75-88e3-80f23793d1c0)
 curl localhost:80
 port 6666 był zablokowany
 ![image](https://github.com/lukas5555510/DockerLab11/assets/83607788/70c82eaf-b6d6-4e4f-8696-9312c7b61904)
